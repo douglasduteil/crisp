@@ -1,2 +1,3 @@
-# crisp
-⚡ Typed Crisp API 
+# Crisp
+
+> ⚡ Typed Crisp API
