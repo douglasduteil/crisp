@@ -1,0 +1,25 @@
+{
+  "name": "crisp",
+  "description": "⚡ Typed Crisp API",
+  "version": "0.0.0",
+  "keywords": [
+    "crisp",
+    "integration",
+    "wrapper",
+    "api",
+    "rest"
+  ],
+  "license": "WTFPL",
+  "author": "Douglas Duteil <douglasduteil@gmail.com> (https://douglasduteil.github.io/)",
+  "type": "module",
+  "module": "index.ts",
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "release": {
+    "npmPublish": false
+  }
+}
