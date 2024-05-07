@@ -8,6 +8,14 @@ on:
   workflow_dispatch:
 
 jobs:
+  before_release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v1
+      - run: bun install
+      - run: bun x prettier --check .
+      - run: bun x tsc --noEmit
   release:
     runs-on: ubuntu-latest
     permissions:
