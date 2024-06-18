@@ -1,71 +1,37 @@
 name: Release
 
 on:
-  workflow_run:
-    workflows: [CI]
-    branches: [master]
-    types: [completed]
-
-concurrency: ${{ github.workflow }}-${{ github.ref }}
-
-permissions:
-  contents: write
-  pull-requests: write
+  push:
+    branches:
+      - master
+      - "*.x"
+  workflow_dispatch:
 
 jobs:
-  # before_release:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v4
-  #     - uses: oven-sh/setup-bun@v1
-  #     - run: bun install
-  #     - run: bun x prettier --check .
-  #     - run: bun x tsc --noEmit
-  release:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+  before_release:
     runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v1
+      - run: bun install
+      - run: bun x prettier --check .
+      - run: bun x tsc --noEmit
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+      id-token: write
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
           persist-credentials: false
-      - uses: oven-sh/setup-bun@v1
-      - run: bun install
-      - name: Create Release Pull Request
-        uses: changesets/action@v1
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "lts/*"
+      - run: npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          commit: "ci(changesets): version packages"
-
-      - name: Release output
-        id: release
-        run: |
-          # intermediate variable necessary to avoid quotes around the array
-          # that prevented the fromJson function to work correctly
-          publishedPackages=${{toJSON(steps.changesets.outputs.publishedPackages)}}
-
-          echo 'published=${{steps.changesets.outputs.published}}' >> "$GITHUB_OUTPUT"
-          echo "publishedPackages=$publishedPackages" >> "$GITHUB_OUTPUT"
-
-  publish:
-    name: Publish
-    needs: [release]
-    if: needs.release.outputs.published == 'true'
-    runs-on: ubuntu-latest
-    continue-on-error: true
-    strategy:
-      matrix:
-        package: ${{ fromJson(needs.release.outputs.publishedPackages) }}
-    steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Create release
-        uses: softprops/action-gh-release@v2
-        with:
-          draft: false
-          tag_name: ${{ matrix.package.name }}@${{ matrix.package.version }}
-          generate_release_notes: true
