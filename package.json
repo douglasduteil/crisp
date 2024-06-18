@@ -32,7 +32,7 @@
       [
         "@semantic-release/exec",
         {
-          "prepareCmd": "npx prettier --write CHANGELOG.md"
+          "prepareCmd": "npx -y prettier --write CHANGELOG.md"
         }
       ],
       [
