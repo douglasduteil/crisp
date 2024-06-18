@@ -1,5 +1,11 @@
 # @douglasduteil/crisp
 
+## 0.0.3
+
+### Patch Changes
+
+- fc25b82: lets go 0.0.2
+
 ## 0.0.2
 
 ### Patch Changes
