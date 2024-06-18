@@ -1,3 +1,9 @@
+# [1.2.0](https://github.com/douglasduteil/crisp/compare/v1.1.5...v1.2.0) (2024-06-18)
+
+### Features
+
+- **pkg:** make all ts files accessible ([ebc7a8a](https://github.com/douglasduteil/crisp/commit/ebc7a8af35966110407d9b1ad489d7a9794f2ff0))
+
 ## [1.1.5](https://github.com/douglasduteil/crisp/compare/v1.1.4...v1.1.5) (2024-06-18)
 
 ### Bug Fixes
