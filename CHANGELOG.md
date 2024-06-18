@@ -1,3 +1,9 @@
+## [1.2.1](https://github.com/douglasduteil/crisp/compare/v1.2.0...v1.2.1) (2024-06-18)
+
+### Bug Fixes
+
+- **pkg:** expose the main index.ts ([3b36b8e](https://github.com/douglasduteil/crisp/commit/3b36b8e389b8cd4ddc04b476c53811b0df60b684))
+
 # [1.2.0](https://github.com/douglasduteil/crisp/compare/v1.1.5...v1.2.0) (2024-06-18)
 
 ### Features
