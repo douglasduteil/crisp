@@ -33,6 +33,7 @@ jobs:
       - run: npm pack
       - run: npx
           -p @semantic-release/changelog
+          -p @semantic-release/exec
           -p @semantic-release/git
           semantic-release
         env:

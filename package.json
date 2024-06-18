@@ -29,12 +29,23 @@
       "@semantic-release/commit-analyzer",
       "@semantic-release/release-notes-generator",
       "@semantic-release/changelog",
-      "@semantic-release/npm",
+      [
+        "@semantic-release/exec",
+        {
+          "prepareCmd": "npx prettier --write CHANGELOG.md"
+        }
+      ],
+      [
+        "@semantic-release/npm",
+        {
+          "tarballDir": ".semantic-release"
+        }
+      ],
       "@semantic-release/git",
       [
         "@semantic-release/github",
         {
-          "assets": "*.tgz"
+          "assets": ".semantic-release/*.tgz"
         }
       ]
     ]
