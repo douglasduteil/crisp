@@ -1,3 +1,10 @@
+## [1.1.4](https://github.com/douglasduteil/crisp/compare/v1.1.3...v1.1.4) (2024-06-18)
+
+
+### Bug Fixes
+
+* **release:** try upload a pack 3nd ([3d38fd5](https://github.com/douglasduteil/crisp/commit/3d38fd59cac740daa32eb092f0d4082ebbbe74a8))
+
 ## [1.1.3](https://github.com/douglasduteil/crisp/compare/v1.1.2...v1.1.3) (2024-06-18)
 
 
