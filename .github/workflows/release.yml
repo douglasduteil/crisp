@@ -31,7 +31,7 @@ jobs:
         with:
           node-version: "lts/*"
       - run: npm pack
-      - run: npx semantic-release
+      - run: npx -p @semantic-release/changelog semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
