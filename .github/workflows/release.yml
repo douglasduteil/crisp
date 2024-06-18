@@ -35,3 +35,35 @@ jobs:
         uses: changesets/action@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/setup-node@v3
+        if: steps.changesets.outputs.hasChangesets == 'false'
+        with:
+          node-version: 20
+
+      - name: Set upstream
+        if: steps.changesets.outputs.hasChangesets == 'false'
+        run: git push --set-upstream origin main
+
+      - name: Get Tag Name
+        uses: mathiasvr/command-output@v1
+        id: get_tag_name
+        if: steps.changesets.outputs.hasChangesets == 'false'
+        with:
+          run: echo "v$(node -pe "require('./package.json').version")"
+
+      - name: Tag Commit
+        if: steps.changesets.outputs.hasChangesets == 'false'
+        run: git tag ${{steps.get_tag_name.outputs.stdout}}
+
+      - name: Push Tags
+        if: steps.changesets.outputs.hasChangesets == 'false'
+        run: git push --tags
+
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        if: steps.changesets.outputs.hasChangesets == 'false'
+        with:
+          body_path: CHANGELOG.md
+          files: ./dist/zips/*
+          tag_name: ${{steps.get_tag_name.outputs.stdout}}
