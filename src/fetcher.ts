@@ -9,7 +9,7 @@ export async function fetch_crisp<
   TRequest extends Router["request"],
   TRoute extends Route<TRequest>,
   TResponse extends TRoute["response"],
-  TData extends TResponse["data"]
+  TData extends TResponse["data"],
 >(config: Config, options: TRequest): Promise<TData> {
   const searchParams = new URLSearchParams(options.searchParams).toString();
   const headers = new Headers({
@@ -31,7 +31,7 @@ export async function fetch_crisp<
   });
 
   console.info(
-    `  -->> ${options.method} ${url} ${response.status} ${response.statusText}`
+    `  -->> ${options.method} ${url} ${response.status} ${response.statusText}`,
   );
 
   if (!response.ok) {
@@ -40,7 +40,7 @@ export async function fetch_crisp<
   const crisp_response: CrispResponse<TData> = await response.json();
   if (crisp_response.error) {
     throw new Error(
-      `${url} ${response.status} ${response.statusText} - ${crisp_response.reason}`
+      `${url} ${response.status} ${response.statusText} - ${crisp_response.reason}`,
     );
   }
 
