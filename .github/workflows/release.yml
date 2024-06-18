@@ -35,6 +35,7 @@ jobs:
           -p @semantic-release/changelog
           -p @semantic-release/exec
           -p @semantic-release/git
+          -p prettier
           semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
