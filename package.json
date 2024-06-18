@@ -18,10 +18,11 @@
       "default": "./src/*.ts"
     }
   },
-  "main": "./src/index.ts",
-  "types": "./src/index.ts",
+  "main": "./index.ts",
+  "types": "./index.ts",
   "files": [
-    "src"
+    "src",
+    "index.ts"
   ],
   "release": {
     "npmPublish": false,
