@@ -9,11 +9,15 @@
     "api",
     "rest"
   ],
+  "files": [
+    "src"
+  ],
   "license": "WTFPL",
   "author": "Douglas Duteil <douglasduteil@gmail.com> (https://douglasduteil.github.io/)",
   "type": "module",
   "module": "index.ts",
   "devDependencies": {
+    "@changesets/cli": "^2.27.5",
     "@types/bun": "^1.1.4"
   },
   "peerDependencies": {
