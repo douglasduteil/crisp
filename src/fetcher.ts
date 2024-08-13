@@ -6,10 +6,10 @@ import type { Route, Router } from "./router";
 //
 
 export async function fetch_crisp<
-  TRequest extends Router["request"],
   TRoute extends Route<TRequest>,
-  TResponse extends TRoute["response"],
-  TData extends TResponse["data"],
+  TRequest extends Router["request"] = TRoute["request"],
+  TResponse extends TRoute["response"] = TRoute["response"],
+  TData extends TResponse["data"] = TResponse["data"],
 >(config: Config, options: TRequest): Promise<TData> {
   const searchParams = new URLSearchParams(options.searchParams).toString();
   const headers = new Headers({

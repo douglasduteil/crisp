@@ -1,7 +1,6 @@
 //
 
 import type { Config } from "#src/config";
-import { assert } from "typia";
 
 export const config = {
   base_url: process.env.CRISP_BASE_URL!,
@@ -14,5 +13,5 @@ export const config = {
 } satisfies Config;
 
 export function defineConfig(input = config): Config {
-  return assert<Config>(input);
+  return input;
 }
