@@ -1,3 +1,9 @@
+# [1.4.0](https://github.com/douglasduteil/crisp/compare/v1.3.0...v1.4.0) (2024-08-13)
+
+### Features
+
+- add conversation route ([e48be9b](https://github.com/douglasduteil/crisp/commit/e48be9bae6d2f1a1d1a005bcd51927500f106c63))
+
 # [1.3.0](https://github.com/douglasduteil/crisp/compare/v1.2.1...v1.3.0) (2024-08-13)
 
 ### Features
