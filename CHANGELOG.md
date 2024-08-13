@@ -1,3 +1,9 @@
+# [1.5.0](https://github.com/douglasduteil/crisp/compare/v1.4.0...v1.5.0) (2024-08-13)
+
+### Features
+
+- allow import index as default ([0688b52](https://github.com/douglasduteil/crisp/commit/0688b5216e1f8cdc7e74b5a82397392c46e53a3d))
+
 # [1.4.0](https://github.com/douglasduteil/crisp/compare/v1.3.0...v1.4.0) (2024-08-13)
 
 ### Features
