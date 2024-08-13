@@ -3,8 +3,10 @@
 export interface Operator {
   type: "operator" | "invite" | "sandbox";
   details: {
-    user_id: string;
     email: string;
-    role: "owner" | "member";
+    first_name: string;
+    last_name: string;
+    role?: "owner" | "member";
+    user_id: string;
   };
 }

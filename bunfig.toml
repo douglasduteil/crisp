@@ -1,0 +1,6 @@
+#
+
+preload = ["./scripts/preload.ts"]
+
+[test]
+preload = ["./scripts/preload.ts"]

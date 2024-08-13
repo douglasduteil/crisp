@@ -5,8 +5,8 @@ on:
     workflows:
       - CI
     branches:
-      - master
       - "*.x"
+      - master
     types:
       - completed
 
@@ -15,21 +15,22 @@ concurrency: ${{ github.workflow }}-${{ github.ref }}
 jobs:
   release:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
-    runs-on: ubuntu-latest
     permissions:
       contents: write
+      id-token: write
       issues: write
       pull-requests: write
-      id-token: write
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          persist-credentials: false
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+          persist-credentials:
+
+      - uses: actions/setup-node@v4
         with:
           node-version: "lts/*"
+
       - run: npx
           -p @semantic-release/changelog
           -p @semantic-release/exec

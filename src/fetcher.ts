@@ -21,18 +21,19 @@ export async function fetch_crisp<
     searchParams !== "" ? `?${searchParams}` : ""
   }`;
 
-  console.info(`  <<-- ${options.method} ${url}`);
+  config.debug && console.info(`  <<-- ${options.method} ${url}`);
 
   const body = (options as any as { body: unknown }).body;
   const response = await fetch(url, {
-    method: options.method,
-    headers,
     body: options.method === "GET" ? null : JSON.stringify(body),
+    headers,
+    method: options.method,
   });
 
-  console.info(
-    `  -->> ${options.method} ${url} ${response.status} ${response.statusText}`,
-  );
+  config.debug &&
+    console.info(
+      `  -->> ${options.method} ${url} ${response.status} ${response.statusText}`,
+    );
 
   if (!response.ok) {
     throw new Error(`${url} ${response.status} ${response.statusText}`);
@@ -55,7 +56,7 @@ interface CrispErrorResponse {
 }
 
 interface CrispSuccessResponse<TData> {
-  error: false;
   data: TData;
+  error: false;
 }
 type CrispResponse<TData> = CrispErrorResponse | CrispSuccessResponse<TData>;
