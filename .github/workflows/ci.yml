@@ -13,3 +13,4 @@ jobs:
       - run: bun install
       - run: bun x prettier --check .
       - run: bun x tsc --noEmit
+      - run: bun test
