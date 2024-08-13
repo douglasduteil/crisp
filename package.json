@@ -20,6 +20,9 @@
     "./*": {
       "types": "./src/*.ts",
       "default": "./src/*.ts"
+    },
+    ".": {
+      "default": "./index.ts"
     }
   },
   "main": "./index.ts",
