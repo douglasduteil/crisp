@@ -1,3 +1,9 @@
+## [1.5.1](https://github.com/douglasduteil/crisp/compare/v1.5.0...v1.5.1) (2024-08-13)
+
+### Bug Fixes
+
+- allow string as plugin_urn ([aaf3d40](https://github.com/douglasduteil/crisp/commit/aaf3d401c130a256dfc3a240e11e49dcc8b0ebd6))
+
 # [1.5.0](https://github.com/douglasduteil/crisp/compare/v1.4.0...v1.5.0) (2024-08-13)
 
 ### Features
