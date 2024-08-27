@@ -156,11 +156,8 @@ test.only("send a message", async () => {
       last_message:
         "Nous sommes des amis de Gandhalf le gris. Pouvez-vous nous annoncer à lui ?",
       meta: {
-        avatar: "",
         email: "frodon.sacquet@theshire.middle-earth.com",
         nickname: "Frodon Sacquet",
-        phone: "",
-        segments: ["email", "test"],
       },
     });
   }
