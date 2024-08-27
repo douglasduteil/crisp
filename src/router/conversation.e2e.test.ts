@@ -144,6 +144,9 @@ test.only("send a message", async () => {
     });
   }
 
+  // HACK(douglasduteil): wait for the actual api to react to the changes
+  await new Promise((resolve) => setTimeout(resolve, 111));
+
   {
     const response = await fetch_crisp<GetConversationRoute>(config, {
       endpoint: `/v1/website/${config.website_id}/conversation/${conversation.session_id}`,
