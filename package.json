@@ -31,6 +31,9 @@
     "src",
     "index.ts"
   ],
+  "scripts": {
+    "test:local": "bun test --env-file=.env.local"
+  },
   "release": {
     "npmPublish": false,
     "plugins": [
