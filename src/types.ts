@@ -11,8 +11,14 @@ export interface Operator {
   };
 }
 
+export interface User {
+  avatar: string;
+  nickname: string;
+  type: ("website" | "participant")[];
+}
+
 export interface Conversation {
-  created_at: Number;
+  created_at: number;
   last_message: string;
   meta: ConversationMeta;
 }
@@ -31,3 +37,19 @@ export interface ConversationMeta {
 }
 
 export type ConversationState = "pending" | "resolved" | "unresolved";
+export type Channel = "chat" | "email" | `urn:${string}`;
+
+export interface ConversationMessage {
+  session_id: string;
+  website_id: string;
+  type: "text" | "note" | "file";
+  from: "operator" | "user";
+  origin: Channel;
+  content: string;
+  edited: boolean;
+  fingerprint: number;
+  timestamp: number;
+  read: Channel | "";
+  delivered: Channel | "";
+  user: User;
+}

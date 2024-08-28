@@ -8,6 +8,7 @@ import type {
   ConversationRouter,
   GetConversationMetaRoute,
   GetConversationRoute,
+  GetMessagesInAConversationRoute,
   SendMessageInAConversationRoute,
   UpdateConversationMetaRoute,
   UpdateConversationStateRoute,
@@ -77,7 +78,7 @@ test("change conversation state", async () => {
   await delete_conversation(config, conversation.session_id);
 });
 
-test.only("send a message", async () => {
+test("send a message", async () => {
   const config = defineConfig();
   const conversation = await fetch_crisp(config, {
     endpoint: `/v1/website/${config.website_id}/conversation`,
@@ -163,6 +164,38 @@ test.only("send a message", async () => {
         nickname: "Frodon Sacquet",
       },
     });
+  }
+  {
+    const response = await fetch_crisp<GetMessagesInAConversationRoute>(
+      config,
+      {
+        endpoint: `/v1/website/${config.website_id}/conversation/${conversation.session_id}/messages`,
+        method: "GET",
+        searchParams: {},
+      },
+    );
+
+    expect(response).toMatchObject([
+      {
+        content:
+          "Nous sommes des amis de Gandhalf le gris. Pouvez-vous nous annoncer à lui ?",
+        delivered: "",
+        fingerprint: expect.any(Number),
+        from: "operator",
+        mentions: [],
+        origin: `urn:${config.website_id}`,
+        preview: [],
+        read: "",
+        session_id: conversation.session_id,
+        stamped: true,
+        timestamp: expect.any(Number),
+        type: "text",
+        user: {
+          nickname: "Frodon Sacquet",
+        },
+        website_id: config.website_id,
+      },
+    ]);
   }
 
   await delete_conversation(config, conversation.session_id);

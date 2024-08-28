@@ -2,8 +2,10 @@
 
 import type {
   Conversation,
+  ConversationMessage,
   ConversationMeta,
   ConversationState,
+  User,
 } from "#src/types";
 
 //
@@ -58,6 +60,23 @@ export type RemoveConversationRoute = {
 };
 
 /**
+ * Get Messages In Conversation
+ * @see https://docs.crisp.chat/references/rest-api/v1/#get-messages-in-conversation
+ */
+export type GetMessagesInAConversationRoute = {
+  request: {
+    readonly endpoint: `/v1/website/${string}/conversation/${string}/messages`;
+    readonly method: "GET";
+    //
+    searchParams: { timestamp_before?: string };
+  };
+  response: {
+    data: ConversationMessage[];
+    reason: "listed";
+  };
+};
+
+/**
  * Send A Message In A Conversation
  * @see https://docs.crisp.chat/references/rest-api/v1/#send-a-message-in-conversation
  */
@@ -71,11 +90,7 @@ export type SendMessageInAConversationRoute = {
       origin: `urn:${string}`;
       from: "operator";
       content: string;
-      user: Partial<{
-        avatar: string;
-        nickname: string;
-        type: ("website" | "participant")[];
-      }>;
+      user: Partial<User>;
     };
   };
   response: {
@@ -163,6 +178,7 @@ export type ConversationRouter =
   | GetConversationMetaRoute
   | GetConversationRoute
   | GetConversationStateRoute
+  | GetMessagesInAConversationRoute
   | RemoveConversationRoute
   | SendMessageInAConversationRoute
   | UpdateConversationMetaRoute
