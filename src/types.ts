@@ -12,6 +12,7 @@ export interface Operator {
 }
 
 export interface User {
+  user_id?: string;
   avatar: string;
   nickname: string;
   type: ("website" | "participant")[];
