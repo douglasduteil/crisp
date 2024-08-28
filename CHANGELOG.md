@@ -1,3 +1,9 @@
+## [1.6.1](https://github.com/douglasduteil/crisp/compare/v1.6.0...v1.6.1) (2024-08-28)
+
+### Bug Fixes
+
+- **types:** user can have a user_id ([0a4f3d7](https://github.com/douglasduteil/crisp/commit/0a4f3d7f437cc15d2c0f412323882a8d36783876))
+
 # [1.6.0](https://github.com/douglasduteil/crisp/compare/v1.5.1...v1.6.0) (2024-08-28)
 
 ### Features
