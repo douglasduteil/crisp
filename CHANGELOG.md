@@ -1,3 +1,9 @@
+# [1.6.0](https://github.com/douglasduteil/crisp/compare/v1.5.1...v1.6.0) (2024-08-28)
+
+### Features
+
+- add Get Messages In Conversation ([ceab0bd](https://github.com/douglasduteil/crisp/commit/ceab0bd930f8a1fc80ecd31d08bd4569dea56d02))
+
 ## [1.5.1](https://github.com/douglasduteil/crisp/compare/v1.5.0...v1.5.1) (2024-08-13)
 
 ### Bug Fixes
