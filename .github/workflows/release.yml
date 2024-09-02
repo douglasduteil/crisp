@@ -36,6 +36,7 @@ jobs:
           -p @semantic-release/exec
           -p @semantic-release/git
           -p prettier
+          -p semantic-release-gitmoji
           semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

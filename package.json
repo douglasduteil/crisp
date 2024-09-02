@@ -37,8 +37,25 @@
   "release": {
     "npmPublish": false,
     "plugins": [
-      "@semantic-release/commit-analyzer",
-      "@semantic-release/release-notes-generator",
+      [
+        "semantic-release-gitmoji",
+        {
+          "releaseRules": {
+            "major": [
+              ":boom:"
+            ],
+            "minor": [
+              ":sparkles:"
+            ],
+            "patch": [
+              ":bug:",
+              ":ambulance:",
+              ":pirate_flag:",
+              ":lock:"
+            ]
+          }
+        }
+      ],
       "@semantic-release/changelog",
       [
         "@semantic-release/exec",
@@ -52,7 +69,12 @@
           "tarballDir": ".semantic-release"
         }
       ],
-      "@semantic-release/git",
+      [
+        "@semantic-release/git",
+        {
+          "message": ":bookmark: ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+        }
+      ],
       [
         "@semantic-release/github",
         {
