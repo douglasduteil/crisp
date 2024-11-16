@@ -1,3 +1,5 @@
+# [v1.6.2](https://github.com/douglasduteil/crisp/compare/v1.6.1...v1.6.2) (2024-11-16)
+
 ## [1.6.1](https://github.com/douglasduteil/crisp/compare/v1.6.0...v1.6.1) (2024-08-28)
 
 ### Bug Fixes
