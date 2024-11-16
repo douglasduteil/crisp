@@ -7,6 +7,7 @@ on:
     branches:
       - "*.x"
       - master
+      - beta
     types:
       - completed
 
@@ -22,16 +23,20 @@ jobs:
       pull-requests: write
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: ☁️ Checkout Project
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
           persist-credentials:
 
-      - uses: actions/setup-node@v4
+      - name: 🔧 Setup node.js
+        uses: actions/setup-node@v4
         with:
           node-version: "lts/*"
 
-      - run: npx
+      - name: 🪄 Run semantic-release
+        run: npx
+          -p @sebbo2002/semantic-release-jsr
           -p @semantic-release/changelog
           -p @semantic-release/exec
           -p @semantic-release/git
