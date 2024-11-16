@@ -99,7 +99,7 @@ test("send a message", async () => {
       data: {},
       device: { geolocation: {} },
       email: "",
-      ip: "::1",
+      ip: "xxx",
       nickname: "anonymous",
       phone: "",
       segments: ["chat"],
