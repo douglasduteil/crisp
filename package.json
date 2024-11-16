@@ -70,10 +70,6 @@
         }
       ],
       [
-        "@sebbo2002/semantic-release-jsr",
-        {}
-      ],
-      [
         "@semantic-release/git",
         {
           "message": ":bookmark: ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"

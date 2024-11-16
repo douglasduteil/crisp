@@ -36,7 +36,6 @@ jobs:
 
       - name: 🪄 Run semantic-release
         run: npx
-          -p @sebbo2002/semantic-release-jsr
           -p @semantic-release/changelog
           -p @semantic-release/exec
           -p @semantic-release/git
