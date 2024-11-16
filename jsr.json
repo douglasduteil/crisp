@@ -1,0 +1,10 @@
+{
+  "name": "@douglasduteil/crisp",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "publish": {
+    "include": ["jsr.json", "LICENSE", "README.md", "src/**/*.ts"],
+    "exclude": ["src/**/*.test.ts", "src/**/*.e2e.test.ts"]
+  }
+}
