@@ -1,7 +1,7 @@
 {
   "name": "@douglasduteil/crisp",
   "exports": {
-    ".": "./src/index.ts"
+    ".": "./index.ts"
   },
   "publish": {
     "include": ["jsr.json", "LICENSE", "README.md", "src/**/*.ts"],
